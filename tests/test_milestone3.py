@@ -325,3 +325,4 @@ def test_cli_codegen_command(tmp_path: Path):
     code = out_client.read_text(encoding="utf-8")
     ast.parse(code)
     assert "class GeneratedClient:" in code
+

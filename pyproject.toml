@@ -16,10 +16,13 @@ dependencies = [
     "pytest>=8.0.0",
 ]
 
+[project.scripts]
+private-api-mcp = "private_api_mcp.server:main"
+private-api-re = "private_api_mcp.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
-
