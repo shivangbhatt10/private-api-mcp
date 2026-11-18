@@ -32,9 +32,17 @@ env/
 .coverage
 htmlcov/
 
+# Environment secrets & local profiles
+.env
+.env.local
+.env.*.local
+!.env.example
+.browser_profile/
+*.jsonl
+hn_client.py
+
 # IDE / OS
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
-

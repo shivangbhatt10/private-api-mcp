@@ -97,3 +97,4 @@ Then proceed directly to `inspect_endpoint` and `export_python_client`.
   2. Call `mark_user_action("session_refresh")`.
   3. Re-export credentials using `export_python_client()`.
   4. The `.env` file will be refreshed with the latest valid credentials without modifying the client code.
+
