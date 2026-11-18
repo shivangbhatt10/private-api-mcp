@@ -27,10 +27,14 @@ def make_redacted_preview(value: str) -> str:
 def suggest_env_var_name(name: str, location: str = "header") -> str:
     """Suggest an idiomatic environment variable name based on credential name."""
     clean_name = re.sub(r"[^A-Za-z0-9]+", "_", name).upper().strip("_")
+    if clean_name.startswith("X_"):
+        clean_name = clean_name[2:]
     if "AUTHORIZATION" in clean_name or "AUTH" in clean_name:
         return "API_AUTH_TOKEN"
     if "COOKIE" in clean_name or location == "cookie":
         return f"API_COOKIE_{clean_name}"
+    if clean_name in ("API_KEY", "APIKEY", "KEY"):
+        return "API_KEY"
     if "API_KEY" in clean_name or "APIKEY" in clean_name or "TOKEN" in clean_name:
         return f"API_{clean_name}"
     return f"API_HEADER_{clean_name}"
